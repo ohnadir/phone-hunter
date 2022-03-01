@@ -20,6 +20,7 @@ const searchPhone = () =>{
 }
 /* display phone */
 const displayPhone = data =>{
+    console.log(data);
     if(data[0] == undefined){
         document.getElementById('error').innerText = 'No Device Found';
         spinner('hidden')
@@ -46,16 +47,14 @@ const displayPhone = data =>{
     });
     }
 }
-
 /* display phone details */
 const getPhoneDetails = phoneId =>{
     const url = (`https://openapi.programming-hero.com/api/phone/${phoneId}`)
     spinner('visible');
     fetch(url)
     .then(response => response.json())
-    .then(data => displayPhoneDetails(data.data))
+    .then(data => displayPhoneDetails(data.data)) 
 }
-
 /* display Phone Details */
 const displayPhoneDetails = phone =>{
     const phoneDetailsContainer = document.getElementById('phone-details-container');
