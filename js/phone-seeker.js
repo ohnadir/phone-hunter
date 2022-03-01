@@ -22,7 +22,9 @@ const searchPhone = () =>{
 const displayPhone = data =>{
     if(data[0] == undefined){
         document.getElementById('error').innerText = 'No Device Found';
-        spinner('hidden')
+        spinner('hidden');
+        document.getElementById('phone-details-container').innerText = '';
+        document.getElementById('phone-list-container').innerText = '';
     }
     else{
         const phoneListContainer = document.getElementById('phone-list-container');
