@@ -20,7 +20,6 @@ const searchPhone = () =>{
 }
 /* display phone */
 const displayPhone = data =>{
-    console.log(data);
     if(data[0] == undefined){
         document.getElementById('error').innerText = 'No Device Found';
         spinner('hidden')
