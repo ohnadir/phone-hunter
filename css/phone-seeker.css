@@ -1,6 +1,8 @@
+/* style for all mobile properties Name */
 .bolder{
     font-weight: bold;
 }
+/* spinner  */
 #spinner{
     visibility: hidden;
 }

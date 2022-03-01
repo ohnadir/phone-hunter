@@ -6,6 +6,7 @@ const spinner = type =>{
 const searchPhone = () =>{
     const searchValue = document.getElementById('search-field').value;
     spinner('visible');
+    document.getElementById('error').innerText ='';
     document.getElementById('search-field').value='';
     if(searchValue == ''){
         return;
@@ -21,6 +22,7 @@ const searchPhone = () =>{
 const displayPhone = data =>{
     if(data[0] == undefined){
         document.getElementById('error').innerText = 'No Device Found';
+        spinner('hidden')
     }
     else{
         const phoneListContainer = document.getElementById('phone-list-container');
@@ -80,17 +82,17 @@ const displayPhoneDetails = phone =>{
                 <span>${phone.mainFeatures.sensors[5]}</span> <br></br>
                 <span class="bolder">Others :-</span><br>
                 <span class="bolder">Bluetooth: </span>
-                <span id="bluetooth"></span><br>
+                <span>${phone.others?.Bluetooth ? phone.others.Bluetooth: "No Bluetooth Information"} </span><br>
                 <span class="bolder">GPS:</span>
-                <span>${phone.others?.GPS ? phone.others.GPS: "No Other Information"} </span><br>
+                <span>${phone.others?.GPS ? phone.others.GPS: "No GPS Information"} </span><br>
                 <span class="bolder">NFC:</span>
-                <span> ${phone.others?.NFC ? phone.others.NFC: "No Other Information"}</span><br>
+                <span> ${phone.others?.NFC ? phone.others.NFC: "No NFC Information"}</span><br>
                 <span class="bolder">Radio: </span>
-                <span>${phone.others?.Radio ? phone.others.Radio: "No Other Information"}</span><br>
+                <span>${phone.others?.Radio ? phone.others.Radio: "No Radio Information"}</span><br>
                 <span class="bolder">USB: </span>
-                <span>${phone.others?.USB ? phone.others.USB: "No Other Information"}</span><br>
+                <span>${phone.others?.USB ? phone.others.USB: "No USB Information"}</span><br>
                 <span class="bolder">WLAN: </span>
-                <span>${phone.others?.WLAN ? phone.others.WLAN: "No Other Information"}</span>
+                <span>${phone.others?.WLAN ? phone.others.WLAN: "No WLAN Information"}</span>
                 
             </div>
         </div>
