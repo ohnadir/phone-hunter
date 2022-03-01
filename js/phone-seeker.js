@@ -1,6 +1,8 @@
+/* Spinner Section */
 const spinner = type =>{
     document.getElementById('spinner').style.visibility = type;
 }
+/* Search Phone  */
 const searchPhone = () =>{
     const searchValue = document.getElementById('search-field').value;
     spinner('visible');
@@ -17,7 +19,6 @@ const searchPhone = () =>{
 }
 /* display phone */
 const displayPhone = data =>{
-    // console.log(data)
     if(data[0] == undefined){
         document.getElementById('error').innerText = 'No Device Found';
     }
@@ -51,12 +52,10 @@ const getPhoneDetails = phoneId =>{
     fetch(url)
     .then(response => response.json())
     .then(data => displayPhoneDetails(data.data))
-    // console.log(phone)
 }
 
 /* display Phone Details */
 const displayPhoneDetails = phone =>{
-    console.log(phone)
     const phoneDetailsContainer = document.getElementById('phone-details-container');
     phoneDetailsContainer.textContent= '';
     const div = document.createElement('div');
@@ -66,7 +65,7 @@ const displayPhoneDetails = phone =>{
             <div class="card-body">
                 <h5 class="card-title">${phone.name}</h5>
                 <span class="bolder">Release Date :- </span>
-                <span id="reError">${phone.releaseDate}</span> <br><br>
+                <span>${phone.releaseDate ? phone.releaseDate : "No Release Date Found"}</span> <br><br>
                 <span class="bolder">Main Features :-</span>
                 <span>${phone.mainFeatures.chipSet}</span>,
                 <span>${phone.mainFeatures.displaySize}</span>,
@@ -78,7 +77,20 @@ const displayPhoneDetails = phone =>{
                 <span>${phone.mainFeatures.sensors[2]}</span>,
                 <span>${phone.mainFeatures.sensors[3]}</span>,
                 <span>${phone.mainFeatures.sensors[4]}</span>,
-                <span>${phone.mainFeatures.sensors[5]}</span>
+                <span>${phone.mainFeatures.sensors[5]}</span> <br></br>
+                <span class="bolder">Others :-</span><br>
+                <span class="bolder">Bluetooth: </span>
+                <span id="bluetooth"></span><br>
+                <span class="bolder">GPS:</span>
+                <span>${phone.others?.GPS ? phone.others.GPS: "No Other Information"} </span><br>
+                <span class="bolder">NFC:</span>
+                <span> ${phone.others?.NFC ? phone.others.NFC: "No Other Information"}</span><br>
+                <span class="bolder">Radio: </span>
+                <span>${phone.others?.Radio ? phone.others.Radio: "No Other Information"}</span><br>
+                <span class="bolder">USB: </span>
+                <span>${phone.others?.USB ? phone.others.USB: "No Other Information"}</span><br>
+                <span class="bolder">WLAN: </span>
+                <span>${phone.others?.WLAN ? phone.others.WLAN: "No Other Information"}</span>
                 
             </div>
         </div>
